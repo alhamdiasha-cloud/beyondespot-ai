@@ -45,23 +45,14 @@ function openTool(id){
 }
 
 function generate(){
-alert("Generate jalan")
+
     const text = document.getElementById("prompt").value;
 
     document.getElementById("result").innerHTML = `
         <h3>Output</h3>
-
-        <hr><br>
-
-        <b>Input :</b>
-
-        <p>${text}</p>
-
-        <br>
-
-        <p>
-        Engine Beyondespot AI berhasil berjalan.
-        </p>
+        <hr>
+        <p><b>Input:</b> ${text}</p>
+        <p>Engine Beyondespot AI berhasil berjalan.</p>
     `;
 
 }
