@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyondespot AI Marketing Factory</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#fff}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:220px;background:#111827;padding:20px}
+.sidebar h2{font-size:20px}.sidebar a{display:block;color:#cbd5e1;text-decoration:none;padding:10px 0}
+.main{margin-left:220px;padding:30px}
+.card{background:#1e293b;padding:20px;border-radius:14px;max-width:1000px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;background:#0b1220;color:#fff}
+textarea{min-height:120px}
+button{margin-top:18px;width:100%;padding:14px;background:#6d5dfc;color:#fff;border:none;border-radius:10px;cursor:pointer}
+#result{margin-top:20px;padding:15px;border:1px solid #334155;border-radius:10px;background:#0b1220}
+@media(max-width:768px){.sidebar{position:static;width:auto}.main{margin:0}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="sidebar">
+<h2>Beyondespot AI</h2>
+<a href="#">Marketing Factory</a>
+<a href="#">SEO Article</a>
+<a href="#">Landing Page</a>
+<a href="#">Ads Builder</a>
+</div>
+<div class="main">
+<div class="card">
+<h1>Beyondespot AI Marketing Factory</h1>
+<p>Satu input untuk semua kebutuhan marketing.</p>
+<div class="grid">
+<div><label>Nama Produk</label><input id="produk"></div>
+<div><label>Target Market</label><input id="target"></div>
+</div>
+<p><label>Deskripsi Produk</label></p>
+<textarea id="desk"></textarea>
+<button onclick="gen()">🚀 Generate</button>
+<div id="result">Belum ada hasil.</div>
+</div>
+</div>
+<script>
+function gen(){
+const p=document.getElementById('produk').value||'Produk';
+document.getElementById('result').innerHTML=
+'<h3>Draft Marketing</h3><b>'+p+'</b><ul><li>Artikel SEO</li><li>Landing Page</li><li>Caption Sosial Media</li><li>Iklan</li></ul><p>Siap dihubungkan ke Gemini API.</p>';
+}
+</script>
+</body>
+</html>
