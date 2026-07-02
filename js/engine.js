@@ -27,24 +27,20 @@ function renderSidebar() {
 
 function openTool(id){
 
-    const tool = tools.find(t=>t.id===id);
+    const tool = tools.find(t => t.id === id);
 
-    document.getElementById("toolTitle").innerHTML = tool.name;
-
-    document.getElementById("toolCategory").innerHTML = tool.category;
+    document.getElementById("toolTitle").textContent = tool.name;
+    document.getElementById("toolCategory").textContent = tool.category;
 
     document.getElementById("toolForm").innerHTML = `
         <label>Masukkan Topik</label>
-
-        <input
-            id="prompt"
-            placeholder="Contoh: AI Marketing"
-        >
-
-        <button onclick="generate()">
-            Generate
-        </button>
+        <input id="prompt" placeholder="Contoh: AI Marketing">
+        <button id="generateBtn">Generate</button>
     `;
+
+    document
+        .getElementById("generateBtn")
+        .addEventListener("click", generate);
 
 }
 
