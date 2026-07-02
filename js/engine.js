@@ -49,7 +49,7 @@ function openTool(id){
 }
 
 function generate(){
-
+alert("Generate jalan")
     const text = document.getElementById("prompt").value;
 
     document.getElementById("result").innerHTML = `
