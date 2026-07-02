@@ -1,178 +1,72 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beyondespot AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyondespot AI</title>
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#111827;
-color:white;
-display:flex;
-height:100vh;
-}
-
-.sidebar{
-width:260px;
-background:#1f2937;
-padding:20px;
-box-sizing:border-box;
-}
-
-.sidebar h2{
-margin-top:0;
-}
-
-.tool{
-padding:12px;
-margin:8px 0;
-background:#374151;
-border-radius:8px;
-cursor:pointer;
-}
-
-.tool:hover{
-background:#2563eb;
-}
-
-.main{
-flex:1;
-padding:30px;
-}
-
-input,textarea{
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:8px;
-border:none;
-}
-
-button{
-padding:12px 20px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-#output{
-margin-top:20px;
-padding:20px;
-background:#1f2937;
-border-radius:8px;
-white-space:pre-wrap;
-}
-</style>
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<div id="app"></div>
-<div class="sidebar">
 
-<h2>Beyondespot AI</h2>
+<div class="app">
 
-<div class="tool" onclick="loadTool('seo')">
-SEO Article
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>🚀 Beyondespot AI</h2>
+            <p>Marketing Factory</p>
+        </div>
+
+        <!-- Menu akan dibuat otomatis oleh engine.js -->
+        <div id="sidebar"></div>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="content">
+
+        <div class="header">
+
+            <h1 id="toolTitle">
+                Selamat Datang
+            </h1>
+
+            <p id="toolCategory">
+                Pilih tool di sebelah kiri.
+            </p>
+
+        </div>
+
+        <!-- Form Tool -->
+        <section
+            id="toolForm"
+            class="card">
+
+            <p>
+                Pilih salah satu tool untuk memulai.
+            </p>
+
+        </section>
+
+        <!-- Hasil -->
+        <section
+            id="result"
+            class="card">
+
+            <p>
+                Hasil generate akan muncul di sini.
+            </p>
+
+        </section>
+
+    </main>
+
 </div>
 
-<div class="tool" onclick="loadTool('caption')">
-Instagram Caption
-</div>
-
-<div class="tool" onclick="loadTool('tiktok')">
-TikTok Script
-</div>
-
-</div>
-
-<div class="main">
-
-<h1 id="title">Pilih Tool</h1>
-
-<div id="form"></div>
-
-<div id="output"></div>
-
-</div>
-
-<script>
-
-function loadTool(tool){
-
-let form="";
-
-if(tool==="seo"){
-
-document.getElementById("title").innerHTML="SEO Article Generator";
-
-form=`
-<input id="keyword" placeholder="Keyword">
-<button onclick="generateSEO()">Generate</button>
-`;
-
-}
-
-if(tool==="caption"){
-
-document.getElementById("title").innerHTML="Instagram Caption";
-
-form=`
-<input id="topic" placeholder="Topik">
-<button onclick="generateCaption()">Generate</button>
-`;
-
-}
-
-if(tool==="tiktok"){
-
-document.getElementById("title").innerHTML="TikTok Script";
-
-form=`
-<input id="product" placeholder="Produk">
-<button onclick="generateTikTok()">Generate</button>
-`;
-
-}
-
-document.getElementById("form").innerHTML=form;
-
-document.getElementById("output").innerHTML="";
-
-}
-
-function generateSEO(){
-
-let k=document.getElementById("keyword").value;
-
-document.getElementById("output").innerHTML=
-"SEO Article untuk keyword: "+k;
-
-}
-
-function generateCaption(){
-
-let t=document.getElementById("topic").value;
-
-document.getElementById("output").innerHTML=
-"Caption Instagram tentang: "+t;
-
-}
-
-function generateTikTok(){
-
-let p=document.getElementById("product").value;
-
-document.getElementById("output").innerHTML=
-"Script TikTok untuk produk: "+p;
-
-}
-
-</script>
 <script src="js/engine.js"></script>
+
 </body>
 </html>
