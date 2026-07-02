@@ -1,45 +1,22 @@
-// Beyondespot AI Engine v1.0
+let tools = [];
 
-let TOOLS = [];
-let currentTool = null;
+async function init() {
+    const res = await fetch("data/tools.json");
+    tools = await res.json();
 
-// Jalankan saat halaman selesai dimuat
-window.onload = async function () {
-    await loadTools();
-};
-
-// Membaca data tools.json
-async function loadTools() {
-
-    try {
-
-        const response = await fetch("data/tools.json");
-        TOOLS = await response.json();
-
-        renderSidebar();
-
-    } catch (e) {
-
-        console.error(e);
-
-    }
-
+    renderSidebar();
 }
 
-// Membuat menu sidebar otomatis
 function renderSidebar() {
 
     const sidebar = document.getElementById("sidebar");
 
-    if (!sidebar) return;
-
     sidebar.innerHTML = "";
 
-    TOOLS.forEach(tool => {
+    tools.forEach(tool => {
 
         sidebar.innerHTML += `
-            <div class="tool-item"
-                 onclick="openTool('${tool.id}')">
+            <div class="tool-item" onclick="openTool('${tool.id}')">
                 ${tool.icon} ${tool.name}
             </div>
         `;
@@ -48,74 +25,49 @@ function renderSidebar() {
 
 }
 
-// Membuka Tool
-function openTool(id) {
+function openTool(id){
 
-    currentTool = TOOLS.find(x => x.id === id);
+    const tool = tools.find(t=>t.id===id);
 
-    if (!currentTool) return;
+    document.getElementById("toolTitle").innerHTML = tool.name;
 
-    document.getElementById("toolTitle").innerHTML =
-        currentTool.name;
+    document.getElementById("toolCategory").innerHTML = tool.category;
 
-    document.getElementById("toolCategory").innerHTML =
-        currentTool.category;
-
-    buildForm(currentTool);
-
-}
-
-// Membuat Form Sementara
-function buildForm(tool) {
-
-    const form = document.getElementById("toolForm");
-
-    form.innerHTML = `
-
-        <label>Judul / Topik</label>
+    document.getElementById("toolForm").innerHTML = `
+        <label>Masukkan Topik</label>
 
         <input
-            id="mainInput"
-            type="text"
-            placeholder="Masukkan topik..."
+            id="prompt"
+            placeholder="Contoh: AI Marketing"
         >
 
-        <br><br>
-
-        <button onclick="generateResult()">
+        <button onclick="generate()">
             Generate
         </button>
-
     `;
 
 }
 
-// Generate Sementara
-function generateResult() {
+function generate(){
 
-    const value =
-        document.getElementById("mainInput").value;
+    const text = document.getElementById("prompt").value;
 
     document.getElementById("result").innerHTML = `
+        <h3>Output</h3>
 
-        <h3>Preview</h3>
+        <hr><br>
 
-        <hr>
+        <b>Input :</b>
+
+        <p>${text}</p>
+
+        <br>
 
         <p>
-        Tool :
-        <b>${currentTool.name}</b>
+        Engine Beyondespot AI berhasil berjalan.
         </p>
-
-        <p>
-        Input :
-        ${value}
-        </p>
-
-        <p style="color:lime;">
-        ✔️ Engine berhasil menjalankan tool ini.
-        </p>
-
     `;
 
 }
+
+init();
