@@ -1,62 +1,62 @@
 [
   {
-    "id": "marketing-factory",
-    "name": "Marketing Factory",
-    "icon": "🏭",
-    "category": "Dashboard"
-  },
-  {
-    "id": "seo-article",
+    "id": "seo",
     "name": "SEO Article",
     "icon": "📝",
     "category": "SEO"
   },
   {
-    "id": "landing-page",
+    "id": "landing",
     "name": "Landing Page",
     "icon": "🌐",
     "category": "Website"
   },
   {
-    "id": "ads-builder",
+    "id": "ads",
     "name": "Ads Builder",
     "icon": "📢",
-    "category": "Advertising"
+    "category": "Marketing"
   },
   {
-    "id": "instagram-caption",
+    "id": "caption",
     "name": "Instagram Caption",
     "icon": "📸",
     "category": "Social Media"
   },
   {
-    "id": "facebook-post",
+    "id": "facebook",
     "name": "Facebook Post",
     "icon": "👍",
     "category": "Social Media"
   },
   {
-    "id": "tiktok-script",
+    "id": "tiktok",
     "name": "TikTok Script",
     "icon": "🎬",
     "category": "Video"
   },
   {
-    "id": "youtube-script",
+    "id": "youtube",
     "name": "YouTube Script",
     "icon": "▶️",
     "category": "Video"
   },
   {
-    "id": "product-description",
+    "id": "email",
+    "name": "Email Copy",
+    "icon": "✉️",
+    "category": "Marketing"
+  },
+  {
+    "id": "product",
     "name": "Product Description",
     "icon": "🛍️",
     "category": "E-Commerce"
   },
   {
-    "id": "email-copy",
-    "name": "Email Copy",
-    "icon": "✉️",
-    "category": "Marketing"
+    "id": "meta",
+    "name": "Meta Description",
+    "icon": "🏷️",
+    "category": "SEO"
   }
 ]
